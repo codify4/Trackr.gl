@@ -26,7 +26,7 @@ export default async function Home() {
             <h1 className="text-2xl">Welcome 
               <span className="font-extrabold text-red-600"> {user.name}</span>
             </h1>
-            <Image src={user.image} priority={true} alt={user.name} width={100} height={100} className="rounded-full"/>
+            <Image src={user.image || '/user-circle.svg'} priority={true} alt="User profile" width={100} height={100} className="rounded-full"/>
             <p>Email: {user.email}</p>
             <SignOut />
           </div>
