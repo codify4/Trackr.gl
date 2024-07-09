@@ -15,10 +15,10 @@ import { Button } from "./ui/button";
 export default function SignInForm(){
     return (
       <>
-        <Card className="w-full max-w-sm bg-[#171717] text-white border-0">
-          <CardHeader>
+        <Card className="flex flex-col items-center w-full max-w-sm bg-[#171717] text-white border-0">
+          <CardHeader className="flex flex-col items-center justify-center">
             <CardTitle className="text-2xl">Sign In</CardTitle>
-            <CardDescription>Connect with your Google account to sign in.</CardDescription>
+            <CardDescription className="text-center">Connect with your Google account to sign in.</CardDescription>
           </CardHeader>
           <CardContent className="grid gap-4">
             <form 
@@ -27,8 +27,8 @@ export default function SignInForm(){
                 await signIn("google")
               }} 
             >
-              <Button variant="outline" className="bg-neutral-800 border-0">
-                <FcGoogle size={30}/>
+              <Button variant="default" className="bg-btn-gray border-0">
+                <FcGoogle size={30} className="mr-1"/>
                 Sign in with Google
               </Button>
             </form>

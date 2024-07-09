@@ -1,4 +1,5 @@
 import { signOut } from "../auth"
+import { Button } from "./ui/button"
  
 export default function SignOut() {
   return (
@@ -8,7 +9,9 @@ export default function SignOut() {
         await signOut()
       }}
     >
-      <button type="submit" className="bg-red-800 hover:bg-red-700 px-5 py-3 rounded-xl">Sign Out</button>
+      <Button type="submit" variant="default" className="bg-square-red border-0 rounded-lg hover:bg-[#E60000]">
+        Sign out
+      </Button>
     </form>
   )
 }

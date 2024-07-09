@@ -33,6 +33,17 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
+    colors: {
+      'dark-gray': '#121212',
+      'white': '#FFFFFF',
+      'card-gray': '#171717',
+      'btn-gray': '#242424',
+      'square-gray': '#3F3F3F',
+      'input-gray': '#252525',
+      'input-text': '#878787',
+      'square-green': '#00A811',
+      'square-red': '#7E0000',
+    }
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config
