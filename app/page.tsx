@@ -9,7 +9,7 @@ export default async function Home() {
   const user = session?.user;
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-start p-5 gap-5">
+    <main className="flex min-h-screen flex-col items-center justify-start py-4 px-1 gap-5">
       {!user && (
         <section>
           <div className="flex flex-col items-center">

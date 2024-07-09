@@ -14,7 +14,7 @@ const HabitPage = async () => {
             {
                 user ? (
                     <div className="flex flex-col items-center justify-center gap-3">
-                        <div className="flex flex-row items-center justify-center gap-20 mb-5">
+                        <div className="flex flex-row items-center justify-center gap-24 mb-5">
                             <AccountSheet />
 
                             <Button variant="default" className="bg-square-green text-md rounded-lg cursor-pointer hover:bg-[#00D115]">Add Habit</Button>
