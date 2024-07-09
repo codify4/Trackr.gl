@@ -19,8 +19,8 @@ const AccountSheet = async () => {
             {
                 user && (
                     <Sheet>
-                        <SheetTrigger>
-                            <div className="flex flex-row items-center justify-center gap-2">
+                        <SheetTrigger className="w-[200px]">
+                            <div className="flex flex-row items-center justify-starts gap-2">
                                 <Image 
                                     src={user.image || '/user-circle.svg'} 
                                     priority={true} 
