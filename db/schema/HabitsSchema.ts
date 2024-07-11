@@ -1,11 +1,10 @@
-import { pgTable, serial, varchar, date, boolean, integer } from "drizzle-orm/pg-core";
+import { pgTable, serial, varchar, date, boolean, integer, text } from "drizzle-orm/pg-core";
 import { users } from "./schema";
 
 export const Habits = pgTable("habits", {
   id: serial("id").primaryKey(),
-  userId: integer("userId").references(() => users.id).notNull(),
+  userId: text("userId").notNull().references(() => users.id, { onDelete: "cascade" }),
   name: varchar("text").notNull(),
-  frequency: varchar("frequency").notNull(),
   createdAt: varchar("createdAt").notNull(),
   updatedAt: varchar("updatedAt").notNull(),
 });
@@ -17,4 +16,4 @@ export const HabitsEntries = pgTable("habits_entries", {
     completed: boolean("completed").notNull(),
     createdAt: varchar("createdAt").notNull(),
     updatedAt: varchar("updatedAt").notNull(),
-});
+});  
