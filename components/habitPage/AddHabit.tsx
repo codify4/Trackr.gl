@@ -15,9 +15,10 @@ import {
 } from "../ui/dialog"
 import { Button } from "../ui/button"
 import { Input } from "../ui/input"
+import { redirect } from "next/navigation"
 
 
-const AddHabit = ({ userId }: { userId: string }) => {
+const AddHabit = () => {
     
     const [name, setName] = useState("");
     const [isOpen, setIsOpen] = useState(false);
@@ -33,9 +34,11 @@ const AddHabit = ({ userId }: { userId: string }) => {
                     <DialogDescription>Enter the name of your new habit.</DialogDescription>
                 </DialogHeader>
                 <form action={async() => {
-                    await addHabit(userId, name)
+                    await addHabit(name)
                     setIsOpen(false)
-                    setName("")
+                    setName('')
+                    redirect('/')
+
                 }}>
                     <Input
                         placeholder="Enter a habit"
@@ -46,7 +49,7 @@ const AddHabit = ({ userId }: { userId: string }) => {
                     />
                     <DialogFooter className="flex flex-row gap-2 items-end justify-end">
                         <Button
-                        type="button"
+                        type="submit"
                         className="bg-square-green rounded-lg cursor-pointer hover:bg-[#00D115]"
                         >
                             Add Habit

@@ -1,19 +1,16 @@
-import { pgTable, serial, varchar, date, boolean, integer, text } from "drizzle-orm/pg-core";
+import { pgTable, serial, boolean, integer, text, timestamp } from "drizzle-orm/pg-core";
 import { users } from "./schema";
 
-export const Habits = pgTable("habits", {
-  id: serial("id").primaryKey(),
-  userId: text("userId").notNull().references(() => users.id, { onDelete: "cascade" }),
-  name: varchar("text").notNull(),
-  createdAt: varchar("createdAt").notNull(),
-  updatedAt: varchar("updatedAt").notNull(),
+export const habits = pgTable('habits', {
+  id: serial('id').primaryKey(),
+  userId: text('user_id').notNull().references(() => users.id),
+  name: text('name').notNull(),
+  createdAt: timestamp('created_at').notNull().defaultNow(),
 });
 
-export const HabitsEntries = pgTable("habits_entries", {
-    id: serial("id").primaryKey(),
-    habitId: integer("habitId").references(() => Habits.id).notNull(),
-    date: date("date").notNull(),
-    completed: boolean("completed").notNull(),
-    createdAt: varchar("createdAt").notNull(),
-    updatedAt: varchar("updatedAt").notNull(),
-});  
+export const habitLogs = pgTable('habit_logs', {
+  id: serial('id').primaryKey(),
+  habitId: integer('habit_id').notNull().references(() => habits.id),
+  date: timestamp('date').notNull(),
+  completed: boolean('completed').notNull(),
+});
