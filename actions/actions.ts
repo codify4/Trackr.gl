@@ -1,41 +1,53 @@
-"use server"
+'use server'
 
+import { auth } from '@/auth';
 import { db } from '../db/drizzle';
-import { Habits } from '../db/schema/HabitsSchema';
+import { habits, habitLogs } from '../db/schema/HabitsSchema';
 import { eq } from 'drizzle-orm';
-import { revalidatePath } from 'next/cache';
 
-export async function getHabits(userId: string) {
-  const habits = await db.select().from(Habits).where(eq(Habits.userId, userId));
-  return habits;
-}
+export const getHabits = async () => {
+  const session = await auth();
 
-export async function addHabit(userId: string, habitName: string) {
-  const now = new Date().toISOString();
-  await db.insert(Habits).values({
-    userId,
-    name: habitName,
-    createdAt: now,
-    updatedAt: now,
-  }).returning();
+  if (!session || !session.user || !session.user.id) {
+    throw new Error('You must be logged in to add a habit');
+  }
 
-  revalidatePath('/');
-}
+  return db.select().from(habits).where(eq(habits.userId, session.user.id));
+};
 
-export async function deleteHabit(habitId: number) {
-  await db.delete(Habits).where(eq(Habits.id, habitId));
-  revalidatePath('/habits');
-}
+export const addHabit = async (name: string) => {
+  const session = await auth();
 
-export async function editHabit(habitId: number, habitData: { name?: string; frequency?: string }) {
-  const now = new Date().toISOString();
-  await db.update(Habits)
-    .set({
-      ...habitData,
-      updatedAt: now,
-    })
-    .where(eq(Habits.id, habitId))
-    .returning();
+  if (!session || !session.user) {
+    throw new Error('You must be logged in to add a habit');
+  }
 
-  revalidatePath('/habits');
-}
+  const userId = session.user.id;
+
+  if (!userId || !name) {
+    throw new Error('Missing required fields');
+  }
+
+  await db.insert(habits).values({ userId, name });
+};
+
+export const updateHabit = async (habitId: number, name: string) => {
+
+  if (!name) {
+    throw new Error('Missing required fields');
+  }
+
+  return db.update(habits).set({ name }).where(eq(habits.id, habitId)).returning();
+};
+
+export const deleteHabit = async (habitId: number) => {
+  return db.delete(habits).where(eq(habits.id, habitId)).returning();
+};
+
+export const logHabit = async (habitId: number, date: Date, completed: boolean) => {
+  return db.insert(habitLogs).values({ habitId, date, completed }).returning();
+};
+
+export const getHabitLogs = async (habitId: number) => {
+  return db.select().from(habitLogs).where(eq(habitLogs.habitId, habitId));
+};
