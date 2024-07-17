@@ -37,17 +37,17 @@ const AccountSheet = async () => {
                                 <SheetTitle className="text-2xl">Profile</SheetTitle>
                                 <SheetDescription className="flex flex-col items-center gap-3">
                                     <Image 
-                                    src={user.image || '/user-circle.svg'} 
-                                    priority={true} 
-                                    alt="User profile" 
-                                    width={100} 
-                                    height={100} 
-                                    className="rounded-full"
+                                        src={user.image || '/user-circle.svg'} 
+                                        priority={true} 
+                                        alt="User profile" 
+                                        width={100} 
+                                        height={100} 
+                                        className="rounded-full"
                                     />
-                                    <p className="text-lg">
-                                    Name: 
-                                    <span className="font-bold"> {user.name}</span>
-                                    </p>
+                                    <div className="flex flex-row items-center gap-2 text-lg">
+                                        <p>Name: </p>
+                                        <span className="font-bold"> {user.name}</span>
+                                    </div>
                                     <p className="text-lg">Tracking 5 Habits</p>
                                     
                                     <SignOut/>
