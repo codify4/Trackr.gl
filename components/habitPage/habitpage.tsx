@@ -1,31 +1,24 @@
-import { auth } from "@/auth";
+import { useEffect, useState } from "react";
 
-import SignInForm from "@/components/signin";
-import AccountSheet from "./AccountSheet";
-import Habit from "./Habit";
 import AddHabit from "./AddHabit";
+import Habits from "./Habits";
 
-const HabitPage = async () => {
-    const session = await auth();
-    const user = session?.user;
+import AccountSheet from "./AccountSheet";
 
+
+const HabitPage = () => {
     return (
         <>
-            {
-                user ? (
-                    <div className="flex flex-col items-center justify-center gap-3">
-                        <div className="flex flex-row items-center justify-center gap-[75px] mb-5">
-                            <AccountSheet />
+            <div className="flex flex-col items-center justify-center gap-3">
+                <div className="flex flex-row items-center justify-center gap-[75px] mb-5">
+                    <AccountSheet />
+                    <AddHabit />
+                </div>
 
-                            <AddHabit userId={user.id} />
-                        </div>
-
-                        <Habit />
-                    </div>
-                ) : <SignInForm />
-            }
+                <Habits />
+            </div>
         </>
-    )
-}
+    );
+};
 
-export default HabitPage
+export default HabitPage;

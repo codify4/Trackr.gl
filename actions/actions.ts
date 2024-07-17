@@ -12,7 +12,9 @@ export const getHabits = async () => {
     throw new Error('You must be logged in to add a habit');
   }
 
-  return db.select().from(habits).where(eq(habits.userId, session.user.id));
+  const userHabits = await db.select().from(habits).where(eq(habits.userId, session.user.id));
+
+  return userHabits;
 };
 
 export const addHabit = async (name: string) => {

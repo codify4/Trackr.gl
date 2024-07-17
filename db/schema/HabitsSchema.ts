@@ -1,5 +1,6 @@
 import { pgTable, serial, boolean, integer, text, timestamp } from "drizzle-orm/pg-core";
 import { users } from "./schema";
+import { InferSelectModel } from "drizzle-orm";
 
 export const habits = pgTable('habits', {
   id: serial('id').primaryKey(),
@@ -14,3 +15,6 @@ export const habitLogs = pgTable('habit_logs', {
   date: timestamp('date').notNull(),
   completed: boolean('completed').notNull(),
 });
+
+export type SelectHabits = InferSelectModel<typeof habits>;
+export type SelectHabitLogs = InferSelectModel<typeof habitLogs>;

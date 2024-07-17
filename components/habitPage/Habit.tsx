@@ -1,3 +1,4 @@
+/* Components */
 import { 
     Card, 
     CardHeader, 
@@ -6,15 +7,17 @@ import {
     CardFooter 
 } from "@/components/ui/card"
 import { Button } from "../ui/button"
+
+/* Icons */
 import { LuTrash2 } from "react-icons/lu";
 import { FiEdit2 } from "react-icons/fi";
 import { FaCheck } from "react-icons/fa";
 
-const Habit = () => {
+const Habit = ({ name }: { name: string }) => {
     return (
         <Card className="bg-card-gray text-white border-0 rounded-2xl">
             <CardHeader>
-              <CardTitle>100 Push Ups</CardTitle>
+              <CardTitle>{name ?? "My Habit"}</CardTitle>
             </CardHeader>
             <CardContent className="flex items-center justify-center">
               <div className="flex items-center justify-center">
