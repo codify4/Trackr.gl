@@ -3,9 +3,7 @@
 import { auth } from '@/auth';
 import { db } from '../db/drizzle';
 import { habits, habitLogs } from '../db/schema/HabitsSchema';
-import { eq } from 'drizzle-orm';
-import { redirect } from 'next/navigation';
-import { revalidatePath } from 'next/cache';
+import { count, eq } from 'drizzle-orm';
 
 export const getHabits = async () => {
   const session = await auth();
@@ -55,3 +53,18 @@ export const logHabit = async (habitId: number, date: Date, completed: boolean) 
 export const getHabitLogs = async (habitId: number) => {
   return db.select().from(habitLogs).where(eq(habitLogs.habitId, habitId));
 };
+
+export const getHabitsCount = async () => {
+	const session = await auth();
+
+  if (!session || !session.user || !session.user.id) {
+    throw new Error('You must be logged in to add a habit');
+  }
+
+	const result = await db
+    .select({ count: count() })
+    .from(habits)
+    .where(eq(habits.userId, session.user.id));
+
+	return result[0].count;
+}
