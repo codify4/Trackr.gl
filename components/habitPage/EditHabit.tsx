@@ -23,7 +23,6 @@ import {
 import { Input } from "@/components/ui/input"
 import { FiEdit2 } from "react-icons/fi"
 
-import { cn } from "@/lib/utils"
 import { updateHabit } from "@/actions/actions"
 import { redirect } from "next/navigation"
 
@@ -37,6 +36,9 @@ const EditHabit = ({ id }: { id: number }) => {
     if (isDesktop) {
         return (
             <Dialog open={open} onOpenChange={setOpen}>
+                {open && (
+                    <div className="bg-dark-gray opacity-80 w-full h-full absolute top-0 left-0 z-10"></div>
+                )}
                 <DialogTrigger asChild>
                     <Button variant="default" size="icon" className="text-white bg-square-gray rounded-lg hover:bg-[#4E4E4E]">
                         <FiEdit2 size={20}/>
@@ -44,9 +46,9 @@ const EditHabit = ({ id }: { id: number }) => {
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px] bg-card-gray border-0 rounded-xl">
                     <DialogHeader>
-                        <DialogTitle>Edit profile</DialogTitle>
+                        <DialogTitle>Edit habit</DialogTitle>
                         <DialogDescription>
-                        Make changes to your profile here. Click save when you're done.
+                        Make changes to your habit here. Click save when you're done.
                         </DialogDescription>
                     </DialogHeader>
 
@@ -80,6 +82,9 @@ const EditHabit = ({ id }: { id: number }) => {
     
     return (
         <Drawer open={open} onOpenChange={setOpen}>
+            {open && (
+                <div className="bg-dark-gray opacity-80 w-full h-full absolute top-0 left-0 z-10"></div>
+            )}
             <DrawerTrigger asChild>
                 <Button variant="default" size="icon" className="text-white bg-square-gray rounded-lg hover:bg-[#4E4E4E]">
                     <FiEdit2 size={20}/>

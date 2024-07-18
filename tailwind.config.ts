@@ -36,7 +36,7 @@ const config = {
     colors: {
       'dark-gray': '#121212',
       'white': '#FFFFFF',
-      'card-gray': '#171717',
+      'card-gray': '#1B1B1B',
       'btn-gray': '#242424',
       'square-gray': '#3F3F3F',
       'input-gray': '#252525',

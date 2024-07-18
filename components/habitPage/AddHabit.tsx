@@ -25,6 +25,9 @@ const AddHabit = () => {
 
     return (
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
+            {isOpen && (
+                <div className="bg-dark-gray opacity-80 w-full h-full absolute top-0 left-0 z-10"></div>
+            )}
             <DialogTrigger className="bg-square-green rounded-lg cursor-pointer hover:bg-[#00D115] p-2 text-base">
                 Add Habit
             </DialogTrigger>
