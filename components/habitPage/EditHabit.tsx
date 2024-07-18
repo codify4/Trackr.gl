@@ -90,7 +90,8 @@ const EditHabit = ({ id }: { id: number }) => {
                     <FiEdit2 size={20}/>
                 </Button>
             </DrawerTrigger>
-            <DrawerContent className="bg-card-gray border-0">
+            <DrawerContent className="bg-card-gray border-0 mb-6">
+                <div className="w-20 h-2 rounded-3xl bg-square-gray mx-[155px]"></div>
                 <DrawerHeader className="text-left">
                     <DrawerTitle>Edit habit</DrawerTitle>
                     <DrawerDescription>
