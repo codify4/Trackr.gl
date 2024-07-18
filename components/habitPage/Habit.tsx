@@ -6,14 +6,18 @@ import {
     CardContent, 
     CardFooter 
 } from "@/components/ui/card"
-import { Button } from "../ui/button"
+import { Button } from "@/components/ui/button"
 
 /* Icons */
 import { LuTrash2 } from "react-icons/lu";
 import { FiEdit2 } from "react-icons/fi";
 import { FaCheck } from "react-icons/fa";
 
-const Habit = ({ name }: { name: string }) => {
+/* Utils */
+import { deleteHabit } from "@/actions/actions";
+import { redirect } from "next/navigation";
+
+const Habit = ({ id, name }: { id: number, name: string }) => {
     return (
         <Card className="bg-card-gray text-white border-0 rounded-2xl">
             <CardHeader>
@@ -35,9 +39,20 @@ const Habit = ({ name }: { name: string }) => {
                     <span>Check</span>
                 </Button>
                 <div className="flex gap-3">
-                    <Button variant="default" size="icon" className="text-white bg-square-red rounded-lg hover:bg-[#E60000]">
-                    <LuTrash2 size={20}/>
-                    </Button>
+                    <form action={async () => {
+                        await deleteHabit(id)
+                        redirect('/')
+                      }}
+                    >
+                      <Button 
+                        type="submit"
+                        variant="default" 
+                        size="icon" 
+                        className="text-white bg-square-red rounded-lg hover:bg-[#E60000]"
+                      >
+                        <LuTrash2 size={20}/>
+                      </Button>
+                    </form>
                     <Button variant="default" size="icon" className="text-white bg-square-gray rounded-lg hover:bg-[#4E4E4E]">
                         <FiEdit2 size={20}/>
                     </Button>

@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { redirect } from 'next/navigation';
 
 import { getHabits } from '../../actions/actions';
 
@@ -27,7 +26,6 @@ const HabitList = () => {
         };
 
         fetchHabits();
-        console.log(habits)
     }, []);
 
     if (loading) {
@@ -47,6 +45,7 @@ const HabitList = () => {
                 {habits.map((habit) => (
                     <Habit 
                         key={habit.id}
+                        id={habit.id}
                         name={habit.name} 
                     />
                 ))}

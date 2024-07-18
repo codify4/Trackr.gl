@@ -4,6 +4,7 @@ import { auth } from '@/auth';
 import { db } from '../db/drizzle';
 import { habits, habitLogs } from '../db/schema/HabitsSchema';
 import { eq } from 'drizzle-orm';
+import { redirect } from 'next/navigation';
 
 export const getHabits = async () => {
   const session = await auth();
@@ -43,7 +44,7 @@ export const updateHabit = async (habitId: number, name: string) => {
 };
 
 export const deleteHabit = async (habitId: number) => {
-  return db.delete(habits).where(eq(habits.id, habitId)).returning();
+  await db.delete(habits).where(eq(habits.id, habitId)).returning();
 };
 
 export const logHabit = async (habitId: number, date: Date, completed: boolean) => {
