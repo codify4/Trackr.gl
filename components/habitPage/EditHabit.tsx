@@ -90,43 +90,45 @@ const EditHabit = ({ id }: { id: number }) => {
                     <FiEdit2 size={20}/>
                 </Button>
             </DrawerTrigger>
-            <DrawerContent className="bg-card-gray border-0 mb-6">
-                <div className="w-20 h-2 rounded-3xl bg-square-gray mx-[155px]"></div>
-                <DrawerHeader className="text-left">
-                    <DrawerTitle>Edit habit</DrawerTitle>
-                    <DrawerDescription>
-                        Make changes to your habit here. Click save when you're done.
-                    </DrawerDescription>
-                </DrawerHeader>
+            <DrawerContent className="flex flex-col items-center bg-card-gray border-0 mb-6">
+                <div className="w-20 h-2 rounded-3xl bg-square-gray"></div>
+                <div>
+                    <DrawerHeader className="text-left">
+                        <DrawerTitle>Edit habit</DrawerTitle>
+                        <DrawerDescription>
+                            Make changes to your habit here. Click save when you're done.
+                        </DrawerDescription>
+                    </DrawerHeader>
 
-                <form 
-                    className="grid items-start gap-4 px-4"
-                    action={() => {
-                        updateHabit(id, value)
-                        setOpen(false)
-                        redirect('/')
-                    }}
-                >
-                    <Input 
-                        autoComplete="off"
-                        placeholder="Habit Name" 
-                        className="bg-input-gray"
-                        value={value}
-                        onChange={(e) => setValue(e.target.value)}
-                    />
-                    <Button 
-                        type="submit" 
-                        className="bg-square-green" 
+                    <form 
+                        className="grid items-start gap-4 px-4"
+                        action={() => {
+                            updateHabit(id, value)
+                            setOpen(false)
+                            redirect('/')
+                        }}
                     >
-                        Save changes
-                    </Button>
-                </form>
+                        <Input 
+                            autoComplete="off"
+                            placeholder="Habit Name" 
+                            className="bg-input-gray"
+                            value={value}
+                            onChange={(e) => setValue(e.target.value)}
+                        />
+                        <Button 
+                            type="submit" 
+                            className="bg-square-green" 
+                        >
+                            Save changes
+                        </Button>
+                    </form>
 
-                <DrawerFooter className="pt-2">
-                    <DrawerClose asChild>
-                        <Button variant="default" className="bg-btn-gray">Cancel</Button>
-                    </DrawerClose>
-                </DrawerFooter>
+                    <DrawerFooter className="pt-2">
+                        <DrawerClose asChild>
+                            <Button variant="default" className="bg-btn-gray">Cancel</Button>
+                        </DrawerClose>
+                    </DrawerFooter>
+                </div>
             </DrawerContent>
         </Drawer>
     )
