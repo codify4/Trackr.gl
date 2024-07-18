@@ -39,8 +39,8 @@ const Habit = ({ id, name }: { id: number, name: string }) => {
                     <span>Check</span>
                 </Button>
                 <div className="flex gap-3">
-                    <form action={async () => {
-                        await deleteHabit(id)
+                    <form action={() => {
+                        deleteHabit(id)
                         redirect('/')
                       }}
                     >
