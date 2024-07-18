@@ -5,6 +5,7 @@ import { db } from '../db/drizzle';
 import { habits, habitLogs } from '../db/schema/HabitsSchema';
 import { eq } from 'drizzle-orm';
 import { redirect } from 'next/navigation';
+import { revalidatePath } from 'next/cache';
 
 export const getHabits = async () => {
   const session = await auth();
@@ -40,7 +41,7 @@ export const updateHabit = async (habitId: number, name: string) => {
     throw new Error('Missing required fields');
   }
 
-  return db.update(habits).set({ name }).where(eq(habits.id, habitId)).returning();
+  await db.update(habits).set({ name }).where(eq(habits.id, habitId));
 };
 
 export const deleteHabit = async (habitId: number) => {

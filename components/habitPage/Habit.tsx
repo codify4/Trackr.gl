@@ -16,6 +16,7 @@ import { FaCheck } from "react-icons/fa";
 /* Utils */
 import { deleteHabit } from "@/actions/actions";
 import { redirect } from "next/navigation";
+import EditHabit from "./EditHabit";
 
 const Habit = ({ id, name }: { id: number, name: string }) => {
     return (
@@ -53,9 +54,7 @@ const Habit = ({ id, name }: { id: number, name: string }) => {
                         <LuTrash2 size={20}/>
                       </Button>
                     </form>
-                    <Button variant="default" size="icon" className="text-white bg-square-gray rounded-lg hover:bg-[#4E4E4E]">
-                        <FiEdit2 size={20}/>
-                    </Button>
+                    <EditHabit id={id} />
                 </div>
               </div>
             </CardFooter>
