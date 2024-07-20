@@ -26,7 +26,7 @@ const DeleteHabit = ({ id }: { id: number }) => {
                 <div className="bg-dark-gray opacity-80 w-full h-full absolute top-0 left-0 z-10"></div>
             )}
             <DialogTrigger asChild>
-                <Button variant="default" size="icon" className="text-white bg-square-red rounded-lg hover:bg-[#4E4E4E]">
+                <Button variant="default" size="icon" className="text-white bg-square-red rounded-lg hover:bg-[#E60000]">
                     <LuTrash2 size={20}/>
                 </Button>
             </DialogTrigger>
