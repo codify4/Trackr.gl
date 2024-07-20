@@ -9,14 +9,11 @@ import {
 import { Button } from "@/components/ui/button"
 
 /* Icons */
-import { LuTrash2 } from "react-icons/lu";
-import { FiEdit2 } from "react-icons/fi";
 import { FaCheck } from "react-icons/fa";
 
 /* Utils */
-import { deleteHabit } from "@/actions/actions";
-import { redirect } from "next/navigation";
 import EditHabit from "./EditHabit";
+import DeleteHabit from "./DeleteHabit";
 
 const Habit = ({ id, name }: { id: number, name: string }) => {
     return (
@@ -40,20 +37,7 @@ const Habit = ({ id, name }: { id: number, name: string }) => {
                     <span>Check</span>
                 </Button>
                 <div className="flex gap-3">
-                    <form action={() => {
-                        deleteHabit(id)
-                        redirect('/')
-                      }}
-                    >
-                      <Button 
-                        type="submit"
-                        variant="default" 
-                        size="icon" 
-                        className="text-white bg-square-red rounded-lg hover:bg-[#E60000]"
-                      >
-                        <LuTrash2 size={20}/>
-                      </Button>
-                    </form>
+                    <DeleteHabit id={id} />
                     <EditHabit id={id} />
                 </div>
               </div>
