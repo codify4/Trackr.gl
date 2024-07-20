@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-
 import AddHabit from "./AddHabit";
 import Habits from "./Habits";
 

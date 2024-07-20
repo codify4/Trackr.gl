@@ -31,7 +31,7 @@ const AddHabit = () => {
             <DialogTrigger className="bg-square-green rounded-lg cursor-pointer hover:bg-[#00D115] p-2 text-base">
                 Add Habit
             </DialogTrigger>
-            <DialogContent className="max-w-[425px] bg-card-gray border-0 rounded-xl gap-5">
+            <DialogContent className="w-11/12 bg-card-gray border-0 rounded-xl gap-5">
                 <DialogHeader className="flex flex-col justify-start items-start">
                     <DialogTitle>Add New Habit</DialogTitle>
                     <DialogDescription>Enter the name of your new habit.</DialogDescription>
