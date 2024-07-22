@@ -11,7 +11,7 @@ export const habits = pgTable('habits', {
 
 export const habitLogs = pgTable('habit_logs', {
   id: serial('id').primaryKey(),
-  habitId: integer('habit_id').notNull().references(() => habits.id),
+  habitId: integer('habit_id').references(() => habits.id, { onDelete: 'cascade', onUpdate: 'cascade' }).notNull(),
   date: timestamp('date').notNull(),
   completed: boolean('completed').notNull(),
 });
