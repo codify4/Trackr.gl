@@ -33,7 +33,7 @@ const AccountSheet = async () => {
                                 <h1 className="text-xl">{user.name}</h1>
                             </div>
                         </SheetTrigger>
-                        <SheetContent className="flex flex-col items-center gap-3 bg-dark-gray border-0 ">
+                        <SheetContent side="left" className="flex flex-col items-center gap-3 bg-dark-gray border-0 ">
                             <SheetHeader>
                                 <SheetTitle className="text-2xl">Profile</SheetTitle>
                                 <SheetDescription className="flex flex-col items-center gap-3">
