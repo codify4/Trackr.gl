@@ -68,3 +68,5 @@ export const getHabitsCount = async () => {
 
 	return result[0].count;
 }
+
+//test commit
