@@ -28,7 +28,7 @@ const TopNav = async () => {
                   <span className="text-lg font-semibold">Trackr.gl</span>
                 </Link>
               </div>
-              <RxSlash size={30} className="mx-2"/>
+              <RxSlash size={30} className="mx-3"/>
               <div className="flex items-center gap-4">
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
@@ -43,7 +43,7 @@ const TopNav = async () => {
                       <RiArrowDownSLine size={20} />
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="center" className="bg-[#000000] border-0 text-base p-2">
+                  <DropdownMenuContent align="center" className="bg-[#000000] border-0 text-base p-2 rounded-lg">
                     <DropdownMenuItem className="p-2 cursor-pointer rounded-lg text-base hover:bg-square-gray">
                       Profile
                     </DropdownMenuItem>
