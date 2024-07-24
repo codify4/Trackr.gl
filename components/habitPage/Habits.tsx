@@ -37,11 +37,11 @@ const HabitList = () => {
     }
 
     return (
-        <div className="max-w-md mx-auto">
+        <div className="max-w-md lg:max-w-full mx-auto">
             {habits.length === 0 ? (
                 <p className="text-gray-500">You haven't added any habits yet.</p>
             ) : (
-                <div className="space-y-2">
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
                 {habits.map((habit) => (
                     <Habit 
                         key={habit.id}

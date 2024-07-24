@@ -20,7 +20,7 @@ const AccountSheet = async () => {
             {
                 user && (
                     <Sheet>
-                        <SheetTrigger className="w-[200px]">
+                        <SheetTrigger className="flex lg:hidden w-[200px]">
                             <div className="flex flex-row items-center justify-starts gap-2">
                                 <Image 
                                     src={user.image || '/user-circle.svg'} 

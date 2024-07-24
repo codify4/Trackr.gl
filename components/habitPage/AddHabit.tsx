@@ -15,10 +15,14 @@ import {
 } from "../ui/dialog"
 import { Button } from "../ui/button"
 import { Input } from "../ui/input"
+import { FaPlus } from "react-icons/fa6";
+
 import { redirect } from "next/navigation"
 
+import { cn } from "../../lib/utils";
 
-const AddHabit = () => {
+
+const AddHabit = ({ className }: { className?: string }) => {
     
     const [name, setName] = useState("");
     const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +32,8 @@ const AddHabit = () => {
             {isOpen && (
                 <div className="bg-dark-gray opacity-80 w-full h-full absolute top-0 left-0 z-10"></div>
             )}
-            <DialogTrigger className="bg-square-green rounded-lg cursor-pointer hover:bg-[#00D115] p-2 text-base">
+            <DialogTrigger className={cn("flex flex-row items-center gap-1 bg-square-green rounded-lg cursor-pointer hover:bg-[#00D115] p-2 text-base", className)}>
+                <FaPlus size={16} />
                 Add Habit
             </DialogTrigger>
             <DialogContent className="w-11/12 bg-card-gray border-0 rounded-xl gap-5">
