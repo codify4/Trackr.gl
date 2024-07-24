@@ -33,9 +33,9 @@ const AccountSheet = async () => {
                                 <h1 className="text-xl">{user.name}</h1>
                             </div>
                         </SheetTrigger>
-                        <SheetContent side="left" className="flex flex-col items-center gap-3 bg-dark-gray border-0 ">
-                            <SheetHeader>
-                                <SheetTitle className="text-2xl">Profile</SheetTitle>
+                        <SheetContent side="left" className="flex flex-col items-center gap-3 lg:w-1/6 bg-[#000000] border-0 ">
+                            <SheetHeader className="flex flex-col items-center w-full">
+                                <SheetTitle className="text-2xl self-center">Profile</SheetTitle>
                                 <SheetDescription className="flex flex-col items-center gap-3">
                                     <Image 
                                         src={user.image || '/user-circle.svg'} 
