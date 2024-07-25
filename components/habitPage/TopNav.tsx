@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
+/* Auth */
 import { auth } from "@/auth";
 
 /* Components */
@@ -10,6 +11,9 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSepara
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import AddHabit from "./AddHabit";
 import SignOut from "../signout";
+import HabitCounter from "./HabitCounter";
+
+/* Icons */
 import { RiArrowDownSLine } from "react-icons/ri"
 import { RxSlash } from "react-icons/rx";
 
@@ -20,7 +24,7 @@ const TopNav = async () => {
     return (
       <>
         {user && (
-          <header className="bg-[#000000] py-4 px-6 lg:flex hidden items-center w-full justify-between text-base">
+          <header className="bg-[#00000059] py-4 px-6 lg:flex hidden items-center w-full justify-between text-base">
             <div className="flex items-center">
               <div className="flex items-center gap-4">
                 <Link href="#" className="flex items-center gap-2" prefetch={false}>
@@ -28,7 +32,7 @@ const TopNav = async () => {
                   <span className="text-lg font-semibold">Trackr.gl</span>
                 </Link>
               </div>
-              <RxSlash size={30} className="mx-3"/>
+              <RxSlash size={30} className="ml-3 mr-2"/>
               <div className="flex items-center gap-4">
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
@@ -43,20 +47,19 @@ const TopNav = async () => {
                       <RiArrowDownSLine size={20} />
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="center" className="bg-[#000000] border-0 text-base p-2 rounded-lg">
-                    <DropdownMenuItem className="p-2 cursor-pointer rounded-lg text-base hover:bg-square-gray">
-                      Profile
+                  <DropdownMenuContent align="start" className="bg-[#000000] border-0 text-base p-2 rounded-lg">
+                    <DropdownMenuItem className="p-2 rounded-lg text-base">
+                      {user?.email}
                     </DropdownMenuItem>
-                    <DropdownMenuItem className="p-2 cursor-pointer rounded-lg text-base hover:bg-square-gray">
-                      Settings
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator className="bg-square-gray mx-1" />
+                    <DropdownMenuSeparator className="bg-square-gray mx-1 py-px" />
                     <DropdownMenuItem className="flex items-center justify-center">
                       <SignOut />
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
+              <RxSlash size={30} className="mx-2"/>
+              <HabitCounter className="text-base font-bold rounded-lg px-2 py-3 hover:bg-square-gray"/>
             </div>
             <AddHabit />
           </header>

@@ -49,7 +49,7 @@ const AccountSheet = async () => {
                                         <p>Name: </p>
                                         <span className="font-bold"> {user.name}</span>
                                     </div>
-                                    <HabitCounter />
+                                    <HabitCounter className="text-base font-bold bg-card-gray rounded-lg p-3" />
                                     
                                     <SignOut />
                                     
