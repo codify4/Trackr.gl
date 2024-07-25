@@ -7,7 +7,7 @@ const HabitPage = () => {
     return (
         <>
             <div className="flex flex-col items-center justify-center gap-3">
-                <div className="flex flex-row items-center justify-center gap-[75px] mb-5">
+                <div className="flex flex-row items-center justify-center gap-[50px] sm:gap-[75px] mb-5"> 
                     <AccountSheet />
                     <AddHabit className="flex lg:hidden" />
                 </div>
