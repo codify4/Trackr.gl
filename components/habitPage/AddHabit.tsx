@@ -32,7 +32,7 @@ const AddHabit = ({ className }: { className?: string }) => {
             {isOpen && (
                 <div className="bg-dark-gray opacity-80 w-full h-full absolute top-0 left-0 z-10"></div>
             )}
-            <DialogTrigger className={cn("flex flex-row items-center gap-1 bg-square-green rounded-lg cursor-pointer hover:bg-[#00D115] p-2 text-base", className)}>
+            <DialogTrigger className={cn("flex flex-row items-center gap-1 bg-square-green rounded-lg cursor-pointer hover:bg-[#00D115] p-2 text-7xl<FaPlus size={16} />", className)}>
                 <FaPlus size={16} />
                 Add Habit
             </DialogTrigger>
@@ -58,8 +58,9 @@ const AddHabit = ({ className }: { className?: string }) => {
                     <DialogFooter className="flex flex-row gap-2 items-end justify-end">
                         <Button
                         type="submit"
-                        className="bg-square-green rounded-lg cursor-pointer hover:bg-[#00D115]"
+                        className="flex items-center gap-1 bg-square-green rounded-lg cursor-pointer hover:bg-[#00D115] text-base"
                         >
+                            <FaPlus size={16} />
                             Add Habit
                         </Button>
                     </DialogFooter>
