@@ -27,7 +27,7 @@ export default function SignInForm(){
                 await signIn("google")
               }} 
             >
-              <Button variant="default" className="bg-btn-gray border-0">
+              <Button variant="ghost" className="bg-btn-gray hover:bg-square-gray border-0">
                 <FcGoogle size={30} className="mr-1"/>
                 Sign in with Google
               </Button>

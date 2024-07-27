@@ -20,7 +20,7 @@ export default async function Home() {
               <Image src="/logo.png" alt="Trackr.gl" width={200} height={200} />
               <h1 className="text-4xl font-bold">Trackr.gl</h1>
             </div>
-            <div className="flex flex-col items-center justify-center md:text-xl text-md">
+            <div className="flex flex-col items-center justify-center md:text-xl text-lg mb-5">
               <p>Track your daily habits.</p>
             </div>
           </section>
