@@ -97,13 +97,19 @@ const Habit = ({ id, name }: { id: number, name: string }) => {
                 log.date.toDateString() === date.toDateString() && log.completed
             );
             const isToday = date.toDateString() === today.toDateString();
+            const isPast = date < today;
+
+            let bgColor = "bg-square-gray";
+            if (isCompleted) {
+                bgColor = "bg-square-green";
+            } else if (isPast) {
+                bgColor = "bg-square-red";
+            }
     
             squares.push(
                 <div
                     key={i}
-                    className={`w-5 h-5 rounded-sm ${
-                        isCompleted ? "bg-square-green" : "bg-square-gray"
-                    } ${isToday ? "border-2 border-white" : ""}`}
+                    className={`w-5 h-5 rounded-sm ${bgColor} ${isToday ? "border-2 border-white" : ""}`}
                     title={`${date.toDateString()}${isCompleted ? ' - Completed' : ''}`}
                 />
             );
