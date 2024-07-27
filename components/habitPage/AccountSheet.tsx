@@ -9,7 +9,6 @@ import {
 } from "@/components/ui/sheet"
 import Image from "next/image";
 import SignOut from "../signout";
-import HabitCounter from "./HabitCounter";
   
 const AccountSheet = async () => {
     const session = await auth();
@@ -49,7 +48,6 @@ const AccountSheet = async () => {
                                         <p>Name: </p>
                                         <span className="font-bold"> {user.name}</span>
                                     </div>
-                                    <HabitCounter className="text-base font-bold bg-card-gray rounded-lg p-3" />
                                     
                                     <SignOut />
                                     

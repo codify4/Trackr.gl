@@ -11,7 +11,6 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSepara
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import AddHabit from "./AddHabit";
 import SignOut from "../signout";
-import HabitCounter from "./HabitCounter";
 
 /* Icons */
 import { RiArrowDownSLine } from "react-icons/ri"
@@ -58,8 +57,6 @@ const TopNav = async () => {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
-              <RxSlash size={30} className="mx-2"/>
-              <HabitCounter className="text-base font-bold rounded-lg px-2 py-3 hover:bg-square-gray"/>
             </div>
             <AddHabit />
           </header>
