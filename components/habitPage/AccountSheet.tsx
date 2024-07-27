@@ -32,7 +32,7 @@ const AccountSheet = async () => {
                                 <h1 className="text-xl">{user.name}</h1>
                             </div>
                         </SheetTrigger>
-                        <SheetContent side="left" className="flex flex-col items-center gap-3 lg:w-1/6 bg-[#000000] border-0 ">
+                        <SheetContent side="left" className="flex flex-col items-center gap-3 lg:w-1/6 bg-input-gray border-0 ">
                             <SheetHeader className="flex flex-col items-center w-full">
                                 <SheetTitle className="text-2xl self-center">Profile</SheetTitle>
                                 <SheetDescription className="flex flex-col items-center gap-3">
@@ -44,9 +44,9 @@ const AccountSheet = async () => {
                                         height={100} 
                                         className="rounded-full"
                                     />
-                                    <div className="flex flex-row items-center gap-2 text-lg">
-                                        <p>Name: </p>
+                                    <div className="flex flex-col items-center gap-2 text-lg">
                                         <span className="font-bold"> {user.name}</span>
+                                        <span className="font-bold"> {user.email}</span>
                                     </div>
                                     
                                     <SignOut />
